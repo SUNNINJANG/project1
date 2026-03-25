@@ -33,6 +33,9 @@ function Header() {
           <Link href="/trends" className="hover:text-foreground transition-colors">
             Trends
           </Link>
+          <Link href="/chat" className="hover:text-foreground transition-colors">
+            AI 상담
+          </Link>
           <Link href="/about" className="hover:text-foreground transition-colors">
             About
           </Link>

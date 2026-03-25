@@ -152,10 +152,13 @@ export default function Home() {
             건강검진 데이터와 AI 분석을 통해 나에게 딱 맞는 영양제를 추천받으세요.
             서비스 런칭 소식을 가장 먼저 받아보세요.
           </p>
-          <div className="mt-8">
-            <span className="inline-block rounded-full bg-white px-8 py-3 text-sm font-semibold text-accent shadow-lg">
-              Coming Soon
-            </span>
+          <div className="mt-8 flex gap-4 justify-center">
+            <Link
+              href="/chat"
+              className="inline-block rounded-full bg-white px-8 py-3 text-sm font-semibold text-accent shadow-lg hover:shadow-xl transition-shadow"
+            >
+              AI 영양 상담 시작하기
+            </Link>
           </div>
         </div>
       </section>
