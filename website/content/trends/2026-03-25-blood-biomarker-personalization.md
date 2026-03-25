@@ -2,6 +2,7 @@
 title: "혈액 바이오마커 기반 맞춤 영양이 주류로 진입하다"
 date: "2026-03-25"
 summary: "미국에서 혈액검사 결과 기반 맞춤 영양제 구독 서비스가 급성장하며, 개인화 영양 시장의 새로운 표준이 되고 있다."
+image: "https://images.unsplash.com/photo-1579165466741-7f35e4755660?w=1200&q=80"
 category: "AI & Digital Health"
 tags: ["Personalized Nutrition", "Blood Test", "Subscription", "Biomarker"]
 ---

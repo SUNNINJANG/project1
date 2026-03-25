@@ -2,6 +2,7 @@
 title: "장-뇌 축(Gut-Brain Axis) 영양제, 정신건강 시장의 새 축으로"
 date: "2026-03-23"
 summary: "장내 미생물과 정신건강의 연결고리에 대한 연구가 활발해지면서, 프로바이오틱스·포스트바이오틱스 기반 정신건강 영양제가 급부상하고 있다."
+image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&q=80"
 category: "Gut Health"
 tags: ["Gut-Brain Axis", "Postbiotics", "Mental Health", "Probiotics"]
 ---

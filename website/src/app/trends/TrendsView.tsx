@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { TrendPost } from "@/lib/content";
 
 function formatDate(dateStr: string) {
@@ -172,36 +173,60 @@ export default function TrendsView({ trends }: { trends: TrendPost[] }) {
                     <Link
                       key={trend.slug}
                       href={`/trends/${trend.slug}`}
-                      className="card-hover rounded-2xl border border-border bg-card-bg p-6"
+                      className="card-hover rounded-2xl border border-border bg-card-bg overflow-hidden"
                     >
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-medium ${
-                            categoryColors[trend.category] ||
-                            categoryColors.General
-                          }`}
-                        >
-                          {trend.category}
-                        </span>
-                      </div>
-                      <h3 className="mt-3 text-lg font-semibold leading-snug">
-                        {trend.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-muted line-clamp-3">
-                        {trend.summary}
-                      </p>
-                      {trend.tags.length > 0 && (
-                        <div className="mt-4 flex flex-wrap gap-1.5">
-                          {trend.tags.slice(0, 3).map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-md bg-background px-2 py-0.5 text-xs text-muted"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
+                      {trend.image && (
+                        <div className="relative h-44 w-full">
+                          <Image
+                            src={trend.image}
+                            alt={trend.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                          <span
+                            className={`absolute top-3 left-3 rounded-full px-3 py-1 text-xs font-medium ${
+                              categoryColors[trend.category] ||
+                              categoryColors.General
+                            }`}
+                          >
+                            {trend.category}
+                          </span>
                         </div>
                       )}
+                      <div className="p-5">
+                        {!trend.image && (
+                          <div className="flex items-center gap-2 mb-2">
+                            <span
+                              className={`rounded-full px-3 py-1 text-xs font-medium ${
+                                categoryColors[trend.category] ||
+                                categoryColors.General
+                              }`}
+                            >
+                              {trend.category}
+                            </span>
+                          </div>
+                        )}
+                        <h3 className="text-lg font-semibold leading-snug line-clamp-2">
+                          {trend.title}
+                        </h3>
+                        <p className="mt-2 text-sm text-muted line-clamp-2">
+                          {trend.summary}
+                        </p>
+                        {trend.tags.length > 0 && (
+                          <div className="mt-3 flex flex-wrap gap-1.5">
+                            {trend.tags.slice(0, 3).map((tag) => (
+                              <span
+                                key={tag}
+                                className="rounded-md bg-background px-2 py-0.5 text-xs text-muted"
+                              >
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </Link>
                   ))}
                 </div>

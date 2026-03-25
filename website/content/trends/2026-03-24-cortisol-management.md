@@ -2,6 +2,7 @@
 title: "코르티솔 관리가 건강의 핵심이 된 이유: 스트레스 호르몬 시대의 영양 전략"
 date: "2026-03-24"
 summary: "만성 스트레스와 코르티솔 과다가 비만, 면역 저하, 수면 장애의 근본 원인으로 지목되면서, 적응원(Adaptogen) 기반 코르티솔 관리 영양제가 2026년 최대 성장 카테고리로 부상했다."
+image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80"
 category: "Mental Health"
 tags: ["Cortisol", "Adaptogens", "Stress", "Ashwagandha", "Rhodiola"]
 ---

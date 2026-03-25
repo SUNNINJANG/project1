@@ -2,6 +2,7 @@
 title: "수면 최적화 영양제 스택: 2026년 가장 효과적인 조합은?"
 date: "2026-03-25"
 summary: "수면 부족이 만성질환의 핵심 원인으로 재조명되면서, 과학적 근거가 있는 수면 영양제 스택(Stack)이 글로벌 시장에서 급성장하고 있다."
+image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200&q=80"
 category: "Sleep"
 tags: ["Sleep", "Magnesium", "L-Theanine", "Melatonin", "Ashwagandha"]
 ---

@@ -2,6 +2,7 @@
 title: "Zone 2 유산소 혁명: 왜 전 세계가 '느린 운동'에 빠졌나"
 date: "2026-03-25"
 summary: "고강도 운동 중심에서 Zone 2 저강도 유산소로 트렌드가 전환되고 있다. 미토콘드리아 건강, 지방 대사, 장수와의 연관성이 과학적으로 입증되면서 의사와 트레이너 모두가 추천하는 운동법이 되었다."
+image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=80"
 category: "Exercise & Fitness"
 tags: ["Zone 2", "Cardio", "Mitochondria", "Longevity", "Peter Attia"]
 ---

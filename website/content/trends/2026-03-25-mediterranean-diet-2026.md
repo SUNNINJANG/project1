@@ -2,6 +2,7 @@
 title: "지중해식 식단 2.0: 2026년 가장 주목받는 식이요법의 진화"
 date: "2026-03-25"
 summary: "9년 연속 최고의 식이요법으로 선정된 지중해식 식단이 아시아 식재료와 장건강 요소를 통합한 '지중해식 2.0'으로 진화하고 있다."
+image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&q=80"
 category: "Diet & Nutrition"
 tags: ["Mediterranean Diet", "Gut Health", "Anti-inflammatory", "Olive Oil"]
 ---

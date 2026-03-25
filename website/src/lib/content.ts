@@ -13,6 +13,7 @@ export interface TrendPost {
   summary: string;
   category: string;
   tags: string[];
+  image: string;
   content: string;
 }
 
@@ -33,6 +34,7 @@ export function getAllTrends(): TrendPost[] {
       summary: data.summary || "",
       category: data.category || "General",
       tags: data.tags || [],
+      image: data.image || "",
       content,
     };
   });
@@ -56,6 +58,7 @@ export async function getTrendBySlug(slug: string): Promise<TrendPost | null> {
     summary: data.summary || "",
     category: data.category || "General",
     tags: data.tags || [],
+    image: data.image || "",
     content: processedContent.toString(),
   };
 }

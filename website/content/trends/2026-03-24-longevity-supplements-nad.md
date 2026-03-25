@@ -2,6 +2,7 @@
 title: "NAD+와 장수 영양제: 노화를 늦추는 과학이 현실로"
 date: "2026-03-24"
 summary: "NAD+ 전구체(NMN, NR), 레스베라트롤, 스퍼미딘 등 장수 과학(Longevity Science) 기반 영양제가 실험실을 벗어나 소비자 시장으로 빠르게 확산되고 있다."
+image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&q=80"
 category: "Longevity"
 tags: ["NAD+", "NMN", "Longevity", "Anti-aging", "Spermidine", "David Sinclair"]
 ---

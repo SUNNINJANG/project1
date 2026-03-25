@@ -2,6 +2,7 @@
 title: "피부-장 연결축(Skin-Gut Axis): 여드름부터 노화까지, 답은 장에 있다"
 date: "2026-03-24"
 summary: "피부과학계에서 피부-장 연결축 연구가 폭발적으로 증가하며, 프로바이오틱스와 포스트바이오틱스 기반의 '이너뷰티' 시장이 새로운 성장 동력이 되고 있다."
+image: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1200&q=80"
 category: "Skin & Beauty"
 tags: ["Skin-Gut Axis", "Probiotics", "Inner Beauty", "Collagen", "Acne"]
 ---

@@ -2,6 +2,7 @@
 title: "기능성 버섯 시장, 2026년 80억 달러 돌파 전망"
 date: "2026-03-24"
 summary: "라이온스메인, 차가, 영지 등 기능성 버섯 성분이 영양제 시장의 핵심 트렌드로 부상하며 글로벌 시장이 폭발적으로 성장 중이다."
+image: "https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=1200&q=80"
 category: "Supplement"
 tags: ["Functional Mushrooms", "Adaptogens", "Nootropics"]
 ---
