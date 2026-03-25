@@ -13,11 +13,11 @@ const SYSTEM_PROMPT = `당신은 NUVA의 AI 영양 상담사입니다. 사용자
 7. 답변은 구조화하여 읽기 쉽게 작성하세요.
 
 ## 답변 구조
-- 🔍 **컨디션 분석**: 사용자의 상태를 요약
-- 💊 **추천 영양소**: 부족할 수 있는 영양소와 이유
-- 📋 **추천 영양제 조합**: 실제 섭취할 수 있는 영양제 구성
-- 🍽️ **식단 팁**: 음식으로 보충할 수 있는 방법
-- ⚠️ **주의사항**: 면책 및 주의할 점
+- 🔍 컨디션 분석: 사용자의 상태를 요약
+- 💊 추천 영양소: 부족할 수 있는 영양소와 이유
+- 📋 추천 영양제 조합: 실제 섭취할 수 있는 영양제 구성
+- 🍽️ 식단 팁: 음식으로 보충할 수 있는 방법
+- ⚠️ 주의사항: 면책 및 주의할 점
 
 ## 전문 분야
 - 비타민, 미네랄, 아미노산, 허브 추출물, 프로바이오틱스
@@ -25,45 +25,49 @@ const SYSTEM_PROMPT = `당신은 NUVA의 AI 영양 상담사입니다. 사용자
 - 영양소 간 상호작용 (함께 먹으면 좋은/피해야 할 조합)`;
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    return NextResponse.json(
-      { error: "API key not configured" },
-      { status: 500 }
-    );
-  }
+  try {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "API key not configured" },
+        { status: 500 }
+      );
+    }
 
-  const { messages } = await req.json();
+    const { messages } = await req.json();
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-  const chat = model.startChat({
-    history: [
+    // Build contents array for simple generateContent call
+    const contents = [
       {
-        role: "user",
-        parts: [{ text: "시스템 설정: " + SYSTEM_PROMPT }],
+        role: "user" as const,
+        parts: [{ text: SYSTEM_PROMPT }],
       },
       {
-        role: "model",
+        role: "model" as const,
         parts: [
           {
-            text: "안녕하세요! NUVA AI 영양 상담사입니다. 😊\n\n현재 컨디션이나 건강 고민을 말씀해 주시면, 부족할 수 있는 영양소와 맞춤 영양제를 추천해 드릴게요.\n\n예를 들어:\n- \"요즘 피로감이 심하고 잠을 잘 못 자요\"\n- \"피부가 건조하고 트러블이 자주 나요\"\n- \"집중력이 떨어지고 머리가 멍해요\"\n\n편하게 말씀해 주세요!",
+            text: "네, NUVA AI 영양 상담사로서 사용자의 건강 상태와 컨디션에 맞는 영양소와 영양제를 추천해 드리겠습니다. 편하게 말씀해 주세요!",
           },
         ],
       },
-      ...messages.slice(0, -1).map(
-        (msg: { role: string; content: string }) => ({
-          role: msg.role === "user" ? "user" : "model",
-          parts: [{ text: msg.content }],
-        })
-      ),
-    ],
-  });
+      ...messages.map((msg: { role: string; content: string }) => ({
+        role: (msg.role === "user" ? "user" : "model") as "user" | "model",
+        parts: [{ text: msg.content }],
+      })),
+    ];
 
-  const lastMessage = messages[messages.length - 1];
-  const result = await chat.sendMessage(lastMessage.content);
-  const response = result.response.text();
+    const result = await model.generateContent({ contents });
+    const response = result.response.text();
 
-  return NextResponse.json({ message: response });
+    return NextResponse.json({ message: response });
+  } catch (error) {
+    console.error("Chat API error:", error);
+    return NextResponse.json(
+      { error: String(error) },
+      { status: 500 }
+    );
+  }
 }

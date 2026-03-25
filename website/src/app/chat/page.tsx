@@ -10,21 +10,11 @@ interface Message {
 const INITIAL_MESSAGE: Message = {
   role: "assistant",
   content:
-    "안녕하세요! NUVA AI 영양 상담사입니다. 😊\n\n현재 컨디션이나 건강 고민을 말씀해 주시면, 부족할 수 있는 영양소와 맞춤 영양제를 추천해 드릴게요.\n\n예를 들어:\n- \"요즘 피로감이 심하고 잠을 잘 못 자요\"\n- \"피부가 건조하고 트러블이 자주 나요\"\n- \"집중력이 떨어지고 머리가 멍해요\"\n\n편하게 말씀해 주세요!",
+    "안녕하세요! NUVA AI 영양 상담사입니다.\n\n현재 컨디션이나 건강 고민을 말씀해 주시면, 부족할 수 있는 영양소와 맞춤 영양제를 추천해 드릴게요.\n\n편하게 말씀해 주세요!",
 };
-
-const QUICK_OPTIONS = [
-  "피로감이 심하고 잠을 잘 못 자요",
-  "피부가 건조하고 트러블이 나요",
-  "소화가 잘 안 되고 더부룩해요",
-  "집중력이 떨어지고 머리가 멍해요",
-  "스트레스를 많이 받아요",
-  "면역력이 약해진 것 같아요",
-];
 
 function formatContent(text: string) {
   return text.split("\n").map((line, i) => {
-    // Bold
     const formatted = line.replace(
       /\*\*(.*?)\*\*/g,
       '<strong class="font-semibold">$1</strong>'
@@ -49,8 +39,8 @@ export default function ChatPage() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  async function sendMessage(text?: string) {
-    const content = text || input.trim();
+  async function sendMessage() {
+    const content = input.trim();
     if (!content || isLoading) return;
 
     const userMessage: Message = { role: "user", content };
@@ -102,8 +92,6 @@ export default function ChatPage() {
     }
   }
 
-  const showQuickOptions = messages.length === 1;
-
   return (
     <div className="mx-auto flex h-[calc(100vh-65px)] max-w-3xl flex-col px-4">
       {/* Chat header */}
@@ -144,21 +132,6 @@ export default function ChatPage() {
                 <span className="h-2 w-2 animate-bounce rounded-full bg-accent/40 [animation-delay:0.3s]" />
               </div>
             </div>
-          </div>
-        )}
-
-        {/* Quick options */}
-        {showQuickOptions && (
-          <div className="flex flex-wrap gap-2 pt-2">
-            {QUICK_OPTIONS.map((option) => (
-              <button
-                key={option}
-                onClick={() => sendMessage(option)}
-                className="rounded-full border border-accent/30 bg-accent-bg px-3 py-1.5 text-xs font-medium text-accent hover:bg-accent hover:text-white transition-colors"
-              >
-                {option}
-              </button>
-            ))}
           </div>
         )}
 
